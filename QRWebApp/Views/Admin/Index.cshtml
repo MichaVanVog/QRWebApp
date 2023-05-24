@@ -1,0 +1,36 @@
+﻿@model List<ProductViewModel>
+
+<div>
+    <h2><a asp-area="" asp-controller="Admin" asp-action="AddProduct">Новая запись</a></h2>
+</div>
+<br />
+<div class="table-responsive">
+    <table class="table table-hover">
+        <thead class="table-dark">
+            <tr>
+                <th scope="col">Наименование</th>
+                <th scope="col">Дата изготовления</th>
+                <th scope="col">Срок годности</th>
+                <th scope="col">Магазин</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var product in Model)
+            {
+                <tr>
+                    <th scope="row">@product.Name</th>
+                    @if (product.ProductionDate == product.ExpireDate)
+                    {
+                        <td></td>
+                    }
+                    else
+                    {
+                        <td>@product.ProductionDate</td>
+                    }
+                    <td>@product.ExpireDate</td>
+                    <td>@product.Location</td>
+                </tr>
+            }
+        </tbody> 
+    </table>
+</div>

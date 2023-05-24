@@ -1,0 +1,41 @@
+﻿@model ProductViewModel
+
+<form method="post">
+
+    <div class="text-danger fw-bold" asp-validation-summary="ModelOnly"></div>
+
+    <div class="row mb-3">
+        <label class="form-label" asp-for="Name">Наименование</label>
+        <div class="col-sm-10">
+            <span asp-validation-for="Name"></span>
+            <input asp-for="Name" type="text" class="form-control" />
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label class="form-label" asp-for="ProductionDate">Дата</label>
+        <div class="col-sm-10">
+            <span asp-validation-for="ProductionDate"></span>
+            <input asp-for="ProductionDate" type="date" class="form-control" />
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label class="form-label" asp-for="TermDays">Количество дней</label>
+        <div class="col-sm-10">
+            <span asp-validation-for="TermDays"></span>
+            <input asp-for="TermDays" type="number" class="form-control" />
+        </div>
+    </div>
+    <fieldset class="row mb-3">
+        <div class="col-sm-10">
+            <label asp-for="DaysMonths">Дни/Месяцы</label>
+            <select asp-for="DaysMonths" asp-items="Html.GetEnumSelectList<DateViewModel>()"></select>
+        </div>
+    </fieldset>
+    <fieldset class="row mb-3">
+        <div class="col-sm-10">
+            <label asp-for="Location">Магазин</label>
+            <select asp-for="Location" asp-items="Html.GetEnumSelectList<LocationViewModel>()"></select>
+        </div>
+    </fieldset>
+    <button type="submit" class="btn btn-primary" asp-area="" asp-controller="Admin" asp-action="AddProduct">Сохранить</button>
+</form>
