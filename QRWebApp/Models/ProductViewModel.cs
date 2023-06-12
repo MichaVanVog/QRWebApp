@@ -7,7 +7,7 @@ namespace QRWebApp.Models
     {
         [Required(ErrorMessage = "Не указано наименование")]
         [Display(Name = "Наименование")]
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
         [Required(ErrorMessage = "Не указана дата производства или срока годности")]
         [Display(Name = "Дата")]
